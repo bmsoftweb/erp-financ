@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["gru1"],
+  "functions": { "api/index.ts": { "maxDuration": 60 } },
+  "crons": [{ "path": "/api/financ/cron/cobranca", "schedule": "*/15 * * * *" }],
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api" },
+    { "source": "/((?!api/|assets/).*)", "destination": "/index.html" }
+  ]
+}
